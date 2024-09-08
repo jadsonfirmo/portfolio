@@ -1,7 +1,33 @@
 <main class="main">
   <div class="content">
-    <div class="text-center">
-      <h1>Here my working experiences!</h1>
-    </div>
+    <section class="text-center">
+      <h1>Minhas Experiências</h1>
+    </section>
+    <article class="m-5">
+      <ul class="nav flex-column">
+        @for(item of experiences; track $index){
+        <li class="nav-item mb-4">
+          <div>
+            <span [class]="item.current ? 'text-primary h4' : 'text-muted h6'">
+              <em class="fa fa-laptop-code me-2"></em>
+              {{ item.title }}
+            </span>
+          </div>
+          <div>
+            <em class="fa fa-briefcase me-2"></em>
+            <span [class]="item.current ? 'h5' : 'text-secondary h6'">
+              {{ item.company }}
+            </span>
+          </div>
+          <div>
+            <em class="fa fa-calendar-days me-2"></em>
+            <span [class]="item.current ? 'h6' : 'text-secondary small'">
+              {{ item.period }}
+            </span>
+          </div>
+        </li>
+        }
+      </ul>
+    </article>
   </div>
 </main>
