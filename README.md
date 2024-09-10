@@ -1,2 +1,5 @@
-# portfolio
-My personal porfolio 2024
+# My portfolio
+This is my personal porfolio, made with Angular 18 with standalone components
+
+# Visit
+http://jadsonfirmo.github.io/portfolio
