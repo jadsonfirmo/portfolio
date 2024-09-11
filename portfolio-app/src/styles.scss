@@ -5,3 +5,13 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif !important;
 }
+
+.content-main {
+  margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+  .content-main {
+    margin-left: 0px;
+  }
+}

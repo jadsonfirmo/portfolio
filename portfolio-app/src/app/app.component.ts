@@ -4,6 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { ContentLayoutComponent } from 'app/layouts/content-layout/content-layout.component';
 import { FooterLayoutComponent } from 'app/layouts/footer-layout/footer-layout.component';
 import { MenuLayoutComponent } from 'app/layouts/menu-layout/menu-layout.component';
+import { HeaderLayoutComponent } from 'app/layouts/header-layout/header-layout.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { MenuLayoutComponent } from 'app/layouts/menu-layout/menu-layout.compone
   imports: [
     CommonModule,
     RouterOutlet,
+    HeaderLayoutComponent,
     ContentLayoutComponent,
     FooterLayoutComponent,
     MenuLayoutComponent,
@@ -20,22 +22,9 @@ import { MenuLayoutComponent } from 'app/layouts/menu-layout/menu-layout.compone
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  isMenuCollapsed = false;
-  menu = [
-    {
-      name: 'Home',
-      icon: 'fa-home',
-      route: '/home',
-    },
-    {
-      name: 'Experiências',
-      icon: 'fa-briefcase',
-      route: '/experiences',
-    },
-    {
-      name: 'Sobre mim',
-      icon: 'fa-user',
-      route: '/about-me',
-    },
-  ];
+  isCollapsed = false;
+
+  toggleSidebar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

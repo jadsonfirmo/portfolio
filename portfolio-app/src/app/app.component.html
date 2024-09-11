@@ -1,62 +1,13 @@
-<div class="d-flex flex-column">
-  <!-- Header -->
-  <header
-    class="bg-primary text-white position-fixed w-100 top-0"
-    style="z-index: 1030;"
-  >
-    <div class="d-flex justify-content-between align-items-center mx-3">
-      <button
-        id="btn-collapse"
-        class="btn text-white"
-        type="button"
-        (click)="isMenuCollapsed = !isMenuCollapsed"
-        aria-controls="menu-collapse"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fa fa-bars"></i>
-      </button>
-    </div>
-  </header>
+<app-header-layout (toggleMenu)="toggleSidebar()"></app-header-layout>
+
+<div class="">
+  <app-menu-layout [collapsed]="isCollapsed"></app-menu-layout>
+
+  <app-content-layout>
+    <main class="main pt-5" [class.content-main]="!isCollapsed">
+      <router-outlet></router-outlet>
+    </main>
+  </app-content-layout>
 </div>
 
-<div class="d-flex pt-3">
-  <!-- Menu Lateral -->
-  <nav
-    class="bg-dark text-white p-3 position-fixed vh-100 collapse pt-5"
-    style="min-width: 250px !important; z-index: 1020"
-    [ngClass]="{ show: !isMenuCollapsed }"
-  >
-    <h4 class="text-center">Menu</h4>
-    <ul class="nav flex-column">
-      @for(item of menu; track $index){
-      <li class="nav-item">
-        <a
-          class="nav-link text-white"
-          [routerLink]="item.route"
-          routerLinkActive="active-link"
-        >
-          <em class="fa me-2" [class]="item.icon"></em> {{ item.name }}
-        </a>
-      </li>
-      }
-    </ul>
-  </nav>
-
-  <!-- Conteúdo principal -->
-  <div
-    class="flex-grow-1 pt-2"
-    [ngStyle]="{
-      'margin-left': isMenuCollapsed ? '0' : '250px',
-    }"
-  >
-    <app-content-layout>
-      <main class="main">
-        <router-outlet></router-outlet>
-      </main>
-    </app-content-layout>
-  </div>
-</div>
-
-<!-- Rodapé -->
 <app-footer-layout></app-footer-layout>

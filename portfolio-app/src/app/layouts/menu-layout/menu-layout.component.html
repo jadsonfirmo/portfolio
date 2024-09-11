@@ -1,23 +1,7 @@
-<!-- Botão para mostrar o menu em telas menores -->
-<button
-  id="btn-collapse"
-  class="btn btn-dark d-md-none m-3"
-  type="button"
-  (click)="isMenuCollapsed = !isMenuCollapsed"
-  aria-controls="menu-collapse"
-  aria-expanded="false"
-  aria-label="Toggle navigation"
->
-  <i class="fa fa-bars"></i> Menu
-</button>
-
-<!-- Menu lateral -->
 <nav
-  class="bg-dark text-white p-3 position-fixed vh-100 collapse"
-  style="min-width: 250px !important"
-  [ngClass]="{ show: !isMenuCollapsed }"
+  [class.collapsed]="collapsed"
+  class="sidebar vh-100 bg-dark text-white position-fixed pt-5 mt-2"
 >
-  <h4 class="text-center">Menu</h4>
   <ul class="nav flex-column">
     @for(item of menu; track $index){
     <li class="nav-item">

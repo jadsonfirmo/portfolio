@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-content-layout',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './content-layout.component.html',
   styles: [],
 })
