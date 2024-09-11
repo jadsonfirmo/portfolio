@@ -9,6 +9,7 @@
         class="nav-link text-white"
         [routerLink]="item.route"
         routerLinkActive="active-link"
+        (click)="updateCollapse(false)"
       >
         <em class="fa me-2" [class]="item.icon"></em> {{ item.name }}
       </a>

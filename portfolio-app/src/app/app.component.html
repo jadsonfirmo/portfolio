@@ -1,7 +1,10 @@
 <app-header-layout (toggleMenu)="toggleSidebar()"></app-header-layout>
 
 <div class="">
-  <app-menu-layout [collapsed]="isCollapsed"></app-menu-layout>
+  <app-menu-layout
+    [collapsed]="isCollapsed"
+    (syncCollapsed)="syncCollapsed($event)"
+  ></app-menu-layout>
 
   <app-content-layout>
     <main class="main pt-5" [class.content-main]="!isCollapsed">

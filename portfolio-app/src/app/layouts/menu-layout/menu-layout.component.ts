@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,6 +18,21 @@ import { RouterModule } from '@angular/router';
 })
 export class MenuLayoutComponent {
   @Input() collapsed = false;
+  @Output() syncCollapsed = new EventEmitter<boolean>();
+
+  constructor(private eRef: ElementRef) {}
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: Event) {
+    if (
+      window.innerWidth <= 768 &&
+      !this.eRef.nativeElement.contains(event.target) &&
+      this.collapsed
+    ) {
+      this.updateCollapse(false);
+    }
+  }
+
   menu = [
     {
       name: 'Home',
@@ -28,4 +50,8 @@ export class MenuLayoutComponent {
       route: '/about-me',
     },
   ];
+
+  updateCollapse(collapsed: boolean): void {
+    this.syncCollapsed.emit(collapsed);
+  }
 }

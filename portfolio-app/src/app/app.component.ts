@@ -24,7 +24,11 @@ import { HeaderLayoutComponent } from 'app/layouts/header-layout/header-layout.c
 export class AppComponent {
   isCollapsed = false;
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  syncCollapsed(collapsed: boolean): void {
+    this.isCollapsed = collapsed;
   }
 }
