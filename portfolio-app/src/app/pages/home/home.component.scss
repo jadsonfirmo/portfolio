@@ -1,0 +1,12 @@
+.tech {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tech:hover {
+  color: #0d6efd;
+  transform: scale(1.5);
+}
+
+.contact:hover {
+  color: #0d6efd;
+}

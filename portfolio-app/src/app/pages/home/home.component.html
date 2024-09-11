@@ -1,16 +1,38 @@
-<main class="main">
-  <div class="content">
-    <div class="text-center">
-      <p>Olá, meu nome é</p>
-      <h1>JADSON FIRMO OLIVEIRA</h1>
-      <p>
-        Sou engenheiro de computação e atuo como analista de sistemas e
-        desenvolvedor full-stack, com experiência no mercado de trabalho desde
-        2015.
-      </p>
-      <p>Atualmente sou analista desenvolvedor na Autoglass Brasil.</p>
-      <p>Navegue pelo menu para mais informações.</p>
-      <p>Abraço! :)</p>
-    </div>
-  </div>
-</main>
+<section class="content">
+  <article class="text-center">
+    <p>Olá, meu nome é</p>
+    <h1>JADSON FIRMO OLIVEIRA</h1>
+    <small>
+      Engenheiro de Computação | Analista de Sistemas | Desenvolvedor Full-Stack
+    </small>
+  </article>
+  <article class="text-center pt-5">
+    <a class="text-dark" href="https://github.com/jadsonfirmo" target="_blank">
+      <em class="contact fa-brands fa-github fa-3x p-2"></em>
+    </a>
+    <a
+      class="text-dark"
+      href="https://www.linkedin.com/in/jadsonfirmo"
+      target="_blank"
+    >
+      <em class="contact fa-brands fa-linkedin fa-3x p-2"></em>
+    </a>
+    <a class="text-dark" href="mailto:jadson.firmo@gmail.com" target="_blank">
+      <em class="contact fa fa-envelope fa-3x p-2"></em>
+    </a>
+  </article>
+  <article class="text-center">
+    <p class="m-0">{{ "@jadsonfirmo" }}</p>
+    <p class="m-0">{{ "jadson.firmo@gmail.com" }}</p>
+  </article>
+  <article class="text-center pt-5">
+    @for (item of tech; track $index) {
+    <em
+      class="tech fa-brands fa-2x p-2"
+      [class]="item.icon"
+      [tooltip]="item.name"
+      placement="top"
+    ></em>
+    }
+  </article>
+</section>
