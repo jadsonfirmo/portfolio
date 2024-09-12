@@ -3,6 +3,6 @@
 }
 
 .tech:hover {
-  color: #0d6efd;
+  color: var(--bg-active-color) !important;
   transform: scale(1.5);
 }

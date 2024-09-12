@@ -22,7 +22,34 @@ import { HeaderLayoutComponent } from 'app/layouts/header-layout/header-layout.c
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  darkMode = false;
+  currentTheme: 'light' | 'dark' = 'light';
   isCollapsed = false;
+
+  ngOnInit(): void {
+    const darkModeString = localStorage.getItem('darkMode');
+    this.darkMode = darkModeString ? JSON.parse(darkModeString) : false;
+
+    this.currentTheme =
+      (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+
+    this.applyTheme(this.currentTheme);
+  }
+
+  toggleTheme(modo: boolean): void {
+    this.darkMode = modo;
+    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+
+    this.applyTheme(this.currentTheme);
+
+    localStorage.setItem('darkMode', JSON.stringify(modo));
+    localStorage.setItem('theme', this.currentTheme);
+  }
+
+  applyTheme(theme: 'light' | 'dark'): void {
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.body.classList.add(`${theme}-theme`);
+  }
 
   toggleSidebar(): void {
     this.isCollapsed = !this.isCollapsed;

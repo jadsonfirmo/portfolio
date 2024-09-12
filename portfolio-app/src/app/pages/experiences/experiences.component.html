@@ -1,4 +1,4 @@
-<section class="content ">
+<section class="content">
   <article class="text-center">
     <h1>Minhas Experiências</h1>
   </article>
@@ -7,20 +7,31 @@
       @for(item of experiences; track $index){
       <li class="nav-item mb-4">
         <div>
-          <span [class]="item.current ? 'text-primary h4' : 'text-muted h6'">
-            <em class="fa fa-laptop-code me-2"></em>
+          <em
+            class="fa fa-laptop-code me-2"
+            [class]="item.current ? 'text-primary' : 'text-secondary'"
+          ></em>
+          <span
+            [class]="item.current ? 'text-primary h4' : 'text-secondary h6'"
+          >
             {{ item.title }}
           </span>
         </div>
         <div>
-          <em class="fa fa-briefcase me-2"></em>
-          <span [class]="item.current ? 'h5' : 'text-secondary h6'">
+          <em
+            class="fa fa-briefcase me-2"
+            [class]="item.current ? 'text-dark' : 'text-secondary'"
+          ></em>
+          <span [class]="item.current ? 'h5' : 'text-muted h6'">
             {{ item.company }}
           </span>
         </div>
         <div>
-          <em class="fa fa-calendar-days me-2"></em>
-          <span [class]="item.current ? 'h6' : 'text-secondary small'">
+          <em
+            class="fa fa-calendar-days me-2"
+            [class]="item.current ? 'text-dark' : 'text-secondary'"
+          ></em>
+          <span [class]="item.current ? 'h6' : 'text-muted small'">
             {{ item.period }}
           </span>
         </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header-layout',
@@ -9,4 +9,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderLayoutComponent {
   @Output() toggleMenu = new EventEmitter<void>();
+  @Output() toggleTheme = new EventEmitter<boolean>();
+  @Input() darkMode: boolean;
+
+  changeTheme(): void {
+    this.darkMode = !this.darkMode;
+    this.toggleTheme.emit(this.darkMode);
+  }
 }

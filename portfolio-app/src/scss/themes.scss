@@ -1,0 +1,25 @@
+/* Light theme */
+.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --dark-color: #212529;
+  --muted-color: #6a6d70bf;
+  --primary-color: #0d6efd;
+  --secondary-color: #525558bf;
+  --bg-active-color: #0d6efd;
+  --bg-primary-color: #0d6efd;
+  --bg-dark-color: #212529;
+}
+
+/* Dark theme */
+.dark-theme {
+  --bg-color: #284766;
+  --text-color: #ffffff;
+  --dark-color: #ffffff;
+  --muted-color: #9e9d9dbf;
+  --primary-color: #0d6efd;
+  --secondary-color: #b6b6b6bf;
+  --bg-active-color: #005eeb;
+  --bg-primary-color: #0e49a1;
+  --bg-dark-color: #122e57;
+}

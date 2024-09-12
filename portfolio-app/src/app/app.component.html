@@ -1,16 +1,18 @@
-<app-header-layout (toggleMenu)="toggleSidebar()"></app-header-layout>
+<app-header-layout
+  (toggleMenu)="toggleSidebar()"
+  (toggleTheme)="toggleTheme($event)"
+  [darkMode]="darkMode"
+></app-header-layout>
 
-<div class="">
-  <app-menu-layout
-    [collapsed]="isCollapsed"
-    (syncCollapsed)="syncCollapsed($event)"
-  ></app-menu-layout>
+<app-menu-layout
+  [collapsed]="isCollapsed"
+  (syncCollapsed)="syncCollapsed($event)"
+></app-menu-layout>
 
-  <app-content-layout>
-    <main class="main pt-5" [class.content-main]="!isCollapsed">
-      <router-outlet></router-outlet>
-    </main>
-  </app-content-layout>
-</div>
+<app-content-layout>
+  <main class="main pt-5" [class.content-main]="!isCollapsed">
+    <router-outlet></router-outlet>
+  </main>
+</app-content-layout>
 
 <app-footer-layout></app-footer-layout>
