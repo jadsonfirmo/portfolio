@@ -6,6 +6,18 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+.font-sm {
+  font-size: 0.9em;
+}
+
+.font-xs {
+  font-size: 0.8em;
+}
+
 .content-main {
   margin-left: 250px;
 }
@@ -14,4 +26,8 @@ body {
   .content-main {
     margin-left: 0px;
   }
+}
+
+.contact:hover {
+  color: #0d6efd;
 }
