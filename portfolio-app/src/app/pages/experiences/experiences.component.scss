@@ -1,0 +1,12 @@
+::ng-deep .p-timeline-event-opposite {
+  display: none;
+}
+
+::ng-deep .p-timeline-event-content {
+  margin-bottom: 10px;
+}
+
+::ng-deep .p-timeline-event-connector {
+  background-color: var(--light-color);
+  width: 2px;
+}

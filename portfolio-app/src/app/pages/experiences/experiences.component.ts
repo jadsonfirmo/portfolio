@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IExperiences } from 'app/interfaces/experiences.interface';
+import { TimelineModule } from 'primeng/timeline';
+import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-experiences',
   standalone: true,
-  imports: [],
+  imports: [TimelineModule, BadgeModule],
   templateUrl: './experiences.component.html',
-  styles: [],
+  styleUrl: './experiences.component.scss',
 })
 export class ExperiencesComponent {
   experiences: IExperiences[] = [

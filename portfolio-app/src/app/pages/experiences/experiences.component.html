@@ -2,41 +2,55 @@
   <article class="text-center">
     <h1>Minhas Experiências</h1>
   </article>
+
   <article class="m-3">
-    <ul class="nav flex-column">
-      @for(item of experiences; track $index){
-      <li class="nav-item mb-4">
-        <div>
-          <em
-            class="fa fa-laptop-code me-2"
-            [class]="item.current ? 'text-primary' : 'text-secondary'"
-          ></em>
-          <span
-            [class]="item.current ? 'text-primary h4' : 'text-secondary h6'"
-          >
-            {{ item.title }}
-          </span>
-        </div>
-        <div>
-          <em
-            class="fa fa-briefcase me-2"
-            [class]="item.current ? 'text-dark' : 'text-secondary'"
-          ></em>
-          <span [class]="item.current ? 'h5' : 'text-muted h6'">
-            {{ item.company }}
-          </span>
-        </div>
-        <div>
-          <em
-            class="fa fa-calendar-days me-2"
-            [class]="item.current ? 'text-dark' : 'text-secondary'"
-          ></em>
-          <span [class]="item.current ? 'h6' : 'text-muted small'">
-            {{ item.period }}
-          </span>
-        </div>
-      </li>
-      }
-    </ul>
+    <p-timeline
+      [value]="experiences"
+      styleClass="customized-timeline"
+      align="left"
+    >
+      <ng-template pTemplate="marker" let-item>
+        <span [class]="item.current ? 'text-primary' : 'text-muted'">
+          <em class="fa fa-calendar-days"></em>
+        </span>
+      </ng-template>
+      <ng-template pTemplate="content" let-item>
+        <section class="mb-4">
+          <div>
+            <span [class]="item.current ? 'h6' : 'text-secondary font-sm'">
+              {{ item.period }}
+            </span>
+          </div>
+          <div>
+            <em
+              class="fa fa-laptop-code me-2"
+              [class]="item.current ? 'text-active' : 'text-secondary'"
+            ></em>
+            <span [class]="item.current ? 'text-active h4' : 'text-secondary'">
+              {{ item.title }}
+            </span>
+          </div>
+          <div>
+            <em
+              class="fa fa-briefcase me-2"
+              [class]="item.current ? 'text-dark' : 'text-secondary'"
+            ></em>
+            <span [class]="item.current ? 'h5' : 'text-muted'">
+              {{ item.company }}
+            </span>
+          </div>
+          <div>
+            @for (itemStack of item.stack; track $index) {
+            <p-badge
+              [value]="itemStack"
+              [styleClass]="
+                'me-1 mt-2 font-xxs ' + (item.current ? 'bg-ative' : 'bg-muted')
+              "
+            />
+            }
+          </div>
+        </section>
+      </ng-template>
+    </p-timeline>
   </article>
 </section>
