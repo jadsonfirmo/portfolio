@@ -1,14 +1,26 @@
 <section class="row mb-3">
-  <article class="text-center col-12 col-sm-auto">
-    <section class="text-center">
-      <img
-        src="assets/images/photo.jpeg"
-        alt="foto de jadson"
-        class="img-fluid rounded-4 border border-4 border-dark mb-3"
-        style="height: 20rem"
-      />
-    </section>
+  <article
+    class="d-flex justify-content-center align-items-center text-center col-12 col-sm-auto"
+  >
+    <!-- Skeleton, exibido quando a imagem ainda está carregando -->
+    @if (!imageLoaded) {
+    <ng-container>
+      <p-skeleton height="20rem" width="15rem" class="mb-3" />
+    </ng-container>
+    }
+
+    <!-- Imagem, exibida após ser carregada -->
+    <img
+      id="img-foto-jadson"
+      src="assets/images/photo.jpeg"
+      alt="foto de jadson"
+      class="img-fluid rounded-4 border border-4 border-dark mb-3"
+      (load)="onImageLoad()"
+      [style.display]="imageLoaded ? 'block' : 'none'"
+      [style.height]="'20rem'"
+    />
   </article>
+
   <article class="text-center col-12 col-sm">
     <section class="font-sm">
       <p class="p-0 m-0">Olá, me chamo</p>
